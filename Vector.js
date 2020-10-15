@@ -6,11 +6,11 @@ class Vector {
     }
 
     dot(vec){
-        return thix.x * vec.x + this.y * vec.y + this.z * vec.z;
+        return this.x * vec.x + this.y * vec.y + this.z * vec.z;
     }
 
     cross(vec){
-        return Vector(
+        return new Vector(
             this.y * vec.z - this.z * vec.y,
             this.z * vec.x - this.x * vec.z,
             this.x * vec.y - this.y * vec.x
@@ -18,25 +18,25 @@ class Vector {
     }
 
     add(vec){
-        return Vector(this.x+vec.x, this.y+vec.y, this.z+vec.z)
+        return new Vector(this.x+vec.x, this.y+vec.y, this.z+vec.z)
     }
 
     sub(vec){
-        return Vector(this.x-vec.x, this.y-vec.y, this.z-vec.z)
+        return new Vector(this.x-vec.x, this.y-vec.y, this.z-vec.z)
     }
 
     normalize(){
         var m = Math.sqrt(this.x*this.x + this.y*this.y + this.z * this.z)
 
-        return Vector(this.x/m, this.y/m, this.z/m)
+        return new Vector(this.x/m, this.y/m, this.z/m)
     }
 
     scale(scaleX, scaleY, scaleZ){
-        return Vector(this.x * scaleX, this.y * (scaleY || scaleX), this.z * (scaleZ || scaleX))
+        return new Vector(this.x * scaleX, this.y * (scaleY || scaleX), this.z * (scaleZ || scaleX))
     }
 
     rotateX(theta){
-        return Vector(
+        return new Vector(
             this.x,
             this.y * Math.cos(theta) - this.z * Math.sin(theta),
             this.y * Math.sin(theta) + this.z * Math.cos(theta)
@@ -44,7 +44,7 @@ class Vector {
     }
 
     rotateY(theta){
-        return Vector(
+        return new Vector(
             this.x * Math.cos(theta) + this.z * Math.sin(theta),
             this.y,
             this.x * -Math.sin(theta) + this.z * Math.cos(theta)
@@ -52,7 +52,7 @@ class Vector {
     }
 
     rotateZ(theta){
-        return Vector(
+        return new Vector(
             this.x * Math.cos(theta) - this.y * Math.sin(theta),
             this.x * Math.sin(theta) + this.y * Math.cos(theta),
             this.z
