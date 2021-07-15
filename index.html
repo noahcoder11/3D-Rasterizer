@@ -9,7 +9,20 @@
         <h1>Viewport:</h1>
         <canvas id="viewport"></canvas>
 
-        <script src="Vector.js"></script>
-        <script src="main.js"></script>
+        <script>
+            var canvas = document.getElementById("viewport")
+            var ctx = canvas.getContext("2d")
+            var width = 400, height = 400;
+            var data = new Unit8ClampedArray(width*height<<2)
+            
+            for(var i = 0;i < data.length;i+=4){
+                data[i+0] = 255
+                data[i+1] = 0
+                data[i+2] = 0
+            }
+            
+            data = new ImageData(data, width)
+            ctx.putImageData(data)
+        </script>
     </body>
 </html>
