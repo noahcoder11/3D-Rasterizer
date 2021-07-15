@@ -13,7 +13,7 @@
             var canvas = document.getElementById("viewport")
             var ctx = canvas.getContext("2d")
             var width = 400, height = 400;
-            var data = new Unit8ClampedArray(width*height<<2)
+            var data = new Unit8ClampedArray((width*height)*4)
             
             for(var i = 0;i < data.length;i+=4){
                 data[i+0] = 255
@@ -22,7 +22,7 @@
             }
             
             data = new ImageData(data, width)
-            ctx.putImageData(data)
+            ctx.putImageData(data, 0, 0)
         </script>
     </body>
 </html>
