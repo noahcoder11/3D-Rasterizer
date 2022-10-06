@@ -1,8 +1,9 @@
 class Vector {
-    constructor(x, y, z){
+    constructor(x, y, z, w){
         this.x = x;
         this.y = y;
         this.z = z;
+        this.w = w || 1;
     }
 
     dot(vec){
